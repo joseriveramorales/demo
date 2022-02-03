@@ -5,6 +5,9 @@ public class FileWriteDemo {
         // Use configuration class later to remove code smell -> (Hard coding url's)
         File file = new File("/Users/joserivera/Desktop/Code/JavaIO/demo/src/resources/filesito.txt");
         File file2 = new File("/Users/joserivera/Desktop/Code/JavaIO/demo/src/resources/filesitoVacio.txt");
+
+        // Keep in mind that this is a byte stream, very low-level. Most streams are built upon byte streams.
+        // There exist other streams (example: character streams) and others for more complicated data types that may help to simplify writing the code. 
         FileInputStream fis = null;
         BufferedOutputStream outputStream = null;
 
