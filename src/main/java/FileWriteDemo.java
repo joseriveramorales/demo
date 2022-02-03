@@ -18,10 +18,10 @@ public class FileWriteDemo {
                 fout.write(content);
             }
             System.out.println("Escribi el string -> " + resultado + " <- que lei de filesito.txt en filesitoVacio.txt");
-
+            fis.close();
+            fout.close();
         } catch(IOException e){
             e.printStackTrace();
-        } 
+        }    
     }
-    
 }
