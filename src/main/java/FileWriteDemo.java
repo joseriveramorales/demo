@@ -5,21 +5,20 @@ public class FileWriteDemo {
         File file = new File("/Users/joserivera/Desktop/Code/JavaIO/demo/src/resources/filesito.txt");
         File file2 = new File("/Users/joserivera/Desktop/Code/JavaIO/demo/src/resources/filesitoVacio.txt");
         FileInputStream fis = null;
-        FileOutputStream fout = null;
+        BufferedOutputStream outputStream = null;
 
         String resultado = "";
         try{
             fis = new FileInputStream(file);
-            fout = new FileOutputStream(file2);
+            outputStream = new BufferedOutputStream(new FileOutputStream(file2));
            
-            int content;
-            while((content = fis.read()) != -1){
-                resultado += ((char) content);
-                fout.write(content);
-            }
-            System.out.println("Escribi el string -> " + resultado + " <- que lei de filesito.txt en filesitoVacio.txt");
+            byte[] b = fis.readAllBytes();
+            outputStream.write(b);
+
+            System.out.println("\n Escribi el string -> " + resultado + " <- que lei de filesito.txt en filesitoVacio.txt \n");
+
             fis.close();
-            fout.close();
+            outputStream.close();
         } catch(IOException e){
             e.printStackTrace();
         }    
